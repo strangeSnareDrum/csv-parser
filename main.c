@@ -8,14 +8,17 @@
 int main(int argc, char **argv)
 {
     char fileName[] = "myFile.csv";
-    int m, n, i, j;
-    double **M;
+    int m, n;    // m: number of rows, n: number of columns
+    double **M;  // M: an m x n matrix to be filled with numbers
+    int i, j;
 
+    // Get the dimensions of the csv data
     if (getDataDimensions(fileName, &m, &n)) {
         printf("Terminating\n");
         return EXIT_FAILURE;
     }
 
+    // Allocate memory for M
     printf("m = %i, n = %i\n", m, n);
     M = initContainer(m, n);
     if (M == NULL) {
@@ -23,11 +26,13 @@ int main(int argc, char **argv)
         return EXIT_FAILURE;
     }
 
+    // Parse the csv file and store the numbers in M
     if (parseData(fileName, M, m, n)) {
         printf("Not! Terminating.\n");
         return EXIT_FAILURE;
     }
 
+    // Print the data
     for (i = 0; i < m; i++) {
         for (j = 0; j < n; j++) {
             printf("%.2f, ", M[i][j]);
@@ -35,6 +40,7 @@ int main(int argc, char **argv)
         printf("\n");
     }
 
+    // Release memory
     deinitContainer(M, m);
 
     return 0;
