@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define LINE_LENGTH_MAX 100
-#define ELEMENT_LENGTH_MAX 10
+#define ELEMENT_LENGTH_MAX 11
 
 int main(int argc, char **argv)
 {
