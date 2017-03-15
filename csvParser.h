@@ -1,7 +1,7 @@
 #ifndef CSVPARSER_H
 #define CSVPARSER_H
 
-// defines
+// some defines
 #define LINE_LENGTH_MAX 100
 #define ELEMENT_LENGTH_MAX 10
 #define DELIMITER ','
